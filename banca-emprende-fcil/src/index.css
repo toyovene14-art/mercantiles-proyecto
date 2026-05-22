@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+    --primary: 210 79% 22%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 210 20% 97%;
+    --secondary-foreground: 210 79% 22%;
+    --muted: 210 20% 96%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 35 82% 41%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 210 20% 90%;
+    --input: 210 20% 90%;
+    --ring: 210 79% 22%;
+    --radius: 0.5rem;
+
+    --navy: #0D3B66;
+    --amber: #BA7517;
+    --amber-dark: #965C0F;
+    --ghost-slate: #F8FAFC;
+    --ink: #1A1A1B;
+  }
+
+  .dark {
+    --background: 210 79% 8%;
+    --foreground: 0 0% 98%;
+    --card: 210 79% 10%;
+    --card-foreground: 0 0% 98%;
+    --popover: 210 79% 10%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 35 82% 41%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 210 20% 15%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 210 20% 15%;
+    --muted-foreground: 210 20% 65%;
+    --accent: 35 82% 41%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 210 20% 20%;
+    --input: 210 20% 20%;
+    --ring: 35 82% 41%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter;
+    font-size: 18px;
+    line-height: 1.65;
+    color: #1A1A1B;
+  }
+}
+
+@layer utilities {
+  .text-navy { color: #0D3B66; }
+  .text-amber { color: #BA7517; }
+  .text-amber-dark { color: #965C0F; }
+  .bg-navy { background-color: #0D3B66; }
+  .bg-amber { background-color: #BA7517; }
+  .bg-ghost-slate { background-color: #F8FAFC; }
+  .border-navy { border-color: #0D3B66; }
+  .border-amber { border-color: #BA7517; }
+
+  .golden-thread-line {
+    border-left: 2px solid #BA7517;
+  }
+
+  .hairline-border {
+    border-color: rgba(13, 59, 102, 0.2);
+  }
+
+  .reading-progress-bar {
+    height: 3px;
+    background: linear-gradient(90deg, #BA7517, #965C0F);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    transition: width 0.1s linear;
+  }
+}
+
+/* WhatsApp pulse animation */
+@keyframes whatsapp-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.whatsapp-pulse {
+  animation: whatsapp-pulse 2.5s ease-in-out infinite;
+}
+
+/* Smooth hover card */
+.article-card:hover {
+  box-shadow: 0 8px 32px rgba(13, 59, 102, 0.15);
+  transform: translateY(-2px);
+}
+
+.article-card {
+  transition: all 0.3s ease;
+}
+
+/* TOC active state */
+.toc-item-active {
+  color: #BA7517;
+  border-left: 2px solid #BA7517;
+  padding-left: 8px;
+  font-weight: 600;
+}
+
+/* Article prose styles */
+.article-prose h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #0D3B66;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  border-bottom: 0.5px solid rgba(13, 59, 102, 0.2);
+  padding-bottom: 0.5rem;
+}
+
+.article-prose h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #0D3B66;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.article-prose p {
+  margin-bottom: 1.25rem;
+  color: #1A1A1B;
+}
+
+.article-prose ul {
+  margin: 1rem 0 1.25rem 1.5rem;
+  list-style-type: disc;
+}
+
+.article-prose ol {
+  margin: 1rem 0 1.25rem 1.5rem;
+  list-style-type: decimal;
+}
+
+.article-prose li {
+  margin-bottom: 0.5rem;
+  color: #1A1A1B;
+}
+
+.article-prose strong {
+  color: #0D3B66;
+  font-weight: 600;
+}
+
+/* Search overlay */
+.search-overlay {
+  backdrop-filter: blur(4px);
+}
+
+/* Cookie bar */
+.cookie-bar {
+  backdrop-filter: blur(8px);
+}
+
+/* Scroll snap for categories */
+.categories-scroll {
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.category-snap {
+  scroll-snap-align: start;
+}
